@@ -1,0 +1,2 @@
+.local-admin-link { color:var(--yellow); font-size:.82rem; font-weight:700; letter-spacing:.04em; text-decoration:none; }
+.local-admin-link:hover { color:#fff; text-decoration:underline; }

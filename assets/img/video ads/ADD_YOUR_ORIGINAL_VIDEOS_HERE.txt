@@ -1,0 +1,6 @@
+Place your original LGC background videos in this folder when you need the moving video hero.
+
+Expected homepage file name:
+WEBSITE VIDEO ADS.mp4
+
+The public homepage already references this file. If it is absent, the site still opens normally and shows the campus-opening.jpg poster image instead.
