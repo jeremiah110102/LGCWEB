@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LGC Local Admin</title>
+  <link rel="stylesheet" href="/admin/style.css?v=organized-editor-7">
+</head>
+<body>
+  <main class="shell">
+    <section class="login-card" id="loginCard">
+      <p class="kicker">Luna Goco Colleges, Inc.</p>
+      <h1>Local Admin</h1>
+      <p>This editor changes only the files inside this website folder on your own computer.</p>
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input id="username" type="text" value="Admin" autocomplete="username" required>
+        <label for="password">Master Admin password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button type="submit">Sign in</button>
+      </form>
+      <p class="note">Use the local server, not VS Code Live Server. In the LGC folder terminal run <code>npm start</code>, then open <code>http://localhost:3000/admin</code>. First-use account: <code>Admin</code> / <code>123</code>. Change the password immediately after signing in.</p>
+      <p class="message" id="loginMessage" role="status"></p>
+    </section>
+
+    <section id="studio" class="studio" hidden>
+      <header class="studio-header">
+        <div>
+          <p class="kicker">Local-only content editor</p>
+          <h1>LGC Website Admin</h1>
+          <p class="studio-subtitle">Every saved change writes to a real file inside this local website folder.</p>
+        </div>
+        <div class="header-actions">
+          <span class="local-pill"><i></i> Local source mode</span>
+          <a href="/" target="_blank" rel="noreferrer">View website</a>
+          <button class="quiet master-tab mobile-report-shortcut" type="button" data-open-tab="activity">Reports</button>
+          <button class="quiet" id="logoutButton">Sign out</button>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="Admin workspaces">
+        <div class="workspace-nav-head"><strong>Workspaces</strong><span>Choose what you need to manage.</span></div>
+        <div class="tab-group"><span>Website</span><button class="tab" data-tab="overview"><b>Overview</b><small>Website summary</small></button><button class="tab active" data-tab="content"><b>Content</b><small>Text and section visibility</small></button><button class="tab" data-tab="design"><b>Design</b><small>Colors and visual sections</small></button><button class="tab" data-tab="media"><b>Media</b><small>Photos and shared video</small></button><button class="tab" data-tab="news"><b>News &amp; ticker</b><small>Announcements and marquee</small></button></div>
+        <div class="tab-group master-tab-group"><span>Master controls</span><button class="tab master-tab" data-tab="users"><b>User accounts</b><small>Create and manage Editors</small></button><button class="tab master-tab" data-tab="activity"><b>Reports &amp; export</b><small>Changes and local copies</small></button><button class="tab" data-tab="source"><b>Advanced source</b><small>Direct layout editing</small></button></div>
+        <p class="workspace-nav-note">Changes save directly inside this local website folder.</p>
+      </nav>
+
+      <section class="panel overview-panel" id="overviewPanel" hidden>
+        <div class="panel-head"><div><p class="kicker">Local workspace</p><h2>Manage the complete website from here.</h2><p>Text, colors, media, announcements, page structure, history, and exports are stored in the files inside this LGC project folder.</p></div><button type="button" class="quick-action" data-open-tab="design">Edit section colors</button></div>
+        <div class="overview-grid" id="overviewStats"></div>
+        <div class="source-callout"><strong>What gets saved?</strong><span>Text and layouts → <code>data/pages</code> · Colors → <code>data/section-colors.json</code> and <code>public/css/section-colors.css</code> · News → <code>public/data/news.json</code> · Media → <code>public/assets/uploads</code>.</span></div>
+      </section>
+
+      <section class="panel" id="contentPanel">
+        <div class="panel-head">
+          <div><p class="kicker">Structured editor</p><h2>Edit page content</h2><p>Use the page and section filters to update headings, descriptions, labels, calls-to-action, and links without opening HTML.</p></div>
+          <div class="toolbar"><label class="select-label">Page <select id="contentPage"></select></label><label class="select-label">Section <select id="contentSection"><option value="all">All sections</option></select></label></div>
+        </div>
+        <div class="visual-layout-canvas" id="contentCanvas" aria-label="Visual website section map"></div>
+        <form id="contentForm" class="field-list"></form>
+        <div class="save-row"><button id="saveContent" type="button">Save text changes</button><span class="message" id="contentMessage" role="status"></span></div>
+      </section>
+
+      <section class="panel" id="mediaPanel" hidden>
+        <div class="panel-head">
+          <div>
+            <h2>Replace photos or video files</h2>
+            <p>Choose the page containing the current image or video, then upload its replacement. The new file stays inside this local website folder.</p>
+          </div>
+          <label class="select-label">Page <select id="mediaPage"></select></label>
+        </div>
+        <div id="mediaList" class="media-list"></div>
+        <p class="note">Upload allowance: <strong>up to 1 GB per file</strong> by default. Large files stay local. For smoother loading, use a web-optimized MP4 and keep individual photos below 30 MB when possible.</p>
+      </section>
+
+      <section class="panel design-panel" id="designPanel" hidden>
+        <div class="panel-head">
+          <div><p class="kicker">Visual editor</p><h2>Colors &amp; sections</h2><p>Select a website segment and save its exact color codes. Saving updates both <code>data/section-colors.json</code> and the public CSS file <code>public/css/section-colors.css</code>.</p></div>
+          <label class="select-label">Website segment <select id="colorSection"></select></label>
+        </div>
+        <div class="visual-layout-canvas design-layout-canvas" id="designCanvas" aria-label="Visual website design section map"></div>
+        <div class="design-workbench">
+          <div class="design-preview" id="sectionColorPreview" aria-live="polite"><span>Live color preview</span><strong>Selected website segment</strong><p>These exact color codes will be written into the local website code when you save.</p><button type="button">Sample action</button></div>
+          <form id="colorForm" class="color-form">
+            <div class="color-row"><label><span>Background</span><small>Main section fill</small><div><input type="color" data-color-picker="background"><input type="text" maxlength="7" data-color-code="background" aria-label="Background hex code"></div></label><label><span>Gradient end</span><small>Optional blend color</small><div><input type="color" data-color-picker="gradientEnd"><input type="text" maxlength="7" data-color-code="gradientEnd" aria-label="Gradient end hex code"></div></label></div>
+            <div class="color-row"><label><span>Heading</span><small>H1–H4 styling</small><div><input type="color" data-color-picker="heading"><input type="text" maxlength="7" data-color-code="heading" aria-label="Heading hex code"></div></label><label><span>Body text</span><small>Paragraphs and lists</small><div><input type="color" data-color-picker="text"><input type="text" maxlength="7" data-color-code="text" aria-label="Body text hex code"></div></label></div>
+            <div class="color-row"><label><span>Accent</span><small>Eyebrows and tags</small><div><input type="color" data-color-picker="accent"><input type="text" maxlength="7" data-color-code="accent" aria-label="Accent hex code"></div></label><label><span>Links</span><small>Text links and hover color</small><div><input type="color" data-color-picker="link"><input type="text" maxlength="7" data-color-code="link" aria-label="Link hex code"></div></label></div>
+            <div class="color-row"><label><span>Button</span><small>Button fill</small><div><input type="color" data-color-picker="button"><input type="text" maxlength="7" data-color-code="button" aria-label="Button hex code"></div></label><label><span>Button text</span><small>Button label color</small><div><input type="color" data-color-picker="buttonText"><input type="text" maxlength="7" data-color-code="buttonText" aria-label="Button text hex code"></div></label></div>
+            <div class="color-row"><label><span>Border</span><small>Cards and button outlines</small><div><input type="color" data-color-picker="border"><input type="text" maxlength="7" data-color-code="border" aria-label="Border hex code"></div></label><label><span>Overlay</span><small>Hero image/video tint</small><div><input type="color" data-color-picker="overlay"><input type="text" maxlength="7" data-color-code="overlay" aria-label="Overlay hex code"></div></label></div>
+            <div class="visual-options"><label><input id="gradientEnabled" type="checkbox"> Use background gradient</label><label><input id="sectionVisible" type="checkbox"> Show this segment</label><label>Overlay opacity <input id="overlayOpacity" type="range" min="0" max="100" value="72"><output id="overlayOpacityValue">72%</output></label><label>Extra top/bottom spacing <input id="paddingY" type="number" min="0" max="180" step="4" value="0"> px</label></div>
+            <div class="design-actions"><button id="saveColors" type="submit">Save exact color codes</button><button id="resetColors" class="quiet" type="button">Restore LGC default</button><span class="message" id="colorMessage" role="status"></span></div>
+          </form>
+        </div>
+        <div class="code-note"><strong>Code files changed when saved:</strong><code>data/section-colors.json</code><code>public/css/section-colors.css</code><span>You may open either file in VS Code to see or manually edit the saved hex codes.</span></div>
+      </section>
+
+      <section class="panel" id="newsPanel" hidden>
+        <div class="panel-head"><div><p class="kicker">Updates and alerts</p><h2>News &amp; ticker</h2><p>News items save to <code>public/data/news.json</code>. The marquee can automatically show the latest three headlines or use an independent custom announcement.</p></div><button id="addNews" type="button">Add announcement</button></div>
+        <form id="tickerForm" class="ticker-editor"><div><strong>Marquee banner</strong><p>Custom mode is separate from the general News list.</p></div><label><input type="radio" name="tickerMode" value="latest" checked> Automatically show the latest 3 news titles</label><label><input type="radio" name="tickerMode" value="custom"> Show this custom marquee announcement only</label><textarea id="customTickerMessage" maxlength="500" placeholder="Example: LGC announcement: Enrollment for the first semester is now open."></textarea><div class="save-row"><button type="submit">Save marquee banner</button><span id="tickerMessage" class="message" role="status"></span></div><small>Saved to <code>data/ticker-settings.json</code>.</small></form>
+        <form id="newsForm" class="news-editor"></form>
+        <div class="save-row"><button id="saveNews" type="button">Save news</button><span class="message" id="newsMessage" role="status"></span></div>
+      </section>
+
+      <section class="panel users-panel" id="usersPanel" hidden>
+        <div class="panel-head"><div><p class="kicker">Master Admin only</p><h2>User accounts</h2><p>Create and manage Editor accounts. Editors can update the website but cannot change users, reports, or passwords.</p></div></div>
+        <form id="createUserForm" class="user-create" novalidate>
+          <div class="account-form-head"><strong>Create an Editor account</strong><span>New accounts receive Editor access only.</span></div>
+          <div class="user-create-fields">
+            <label>Display name<input id="newUserDisplayName" required maxlength="80" autocomplete="name" placeholder="Example: Maria Santos"></label>
+            <label>Username<input id="newUserUsername" required maxlength="48" autocomplete="username" placeholder="Example: maria.santos"></label>
+            <label class="password-control">Temporary password<span><input id="newUserPassword" type="password" required minlength="6" autocomplete="new-password" placeholder="At least 6 characters"><button type="button" class="quiet" id="toggleNewUserPassword">Show</button></span></label>
+          </div>
+          <div class="account-form-footer"><div><p id="accountReadiness" class="account-readiness">Enter a display name, a unique username, and a temporary password of at least 6 characters.</p><p class="role-note">After saving, give the Editor their username and temporary password privately.</p></div><button id="createEditorButton" type="submit" disabled>Create Editor account</button></div>
+          <span id="userMessage" class="message" role="status"></span>
+        </form>
+        <div id="usersList" class="users-list"></div>
+      </section>
+
+      <section class="panel" id="sourcePanel" hidden>
+        <div class="panel-head">
+          <div><h2>Advanced page source</h2><p>Use this only for layout or structural changes. Normal wording changes belong in Text content.</p></div>
+          <label class="select-label">Page <select id="sourcePage"></select></label>
+        </div>
+        <textarea id="sourceEditor" class="source-editor" spellcheck="false"></textarea>
+        <div class="save-row"><button id="saveSource" type="button">Save page source</button><span class="message" id="sourceMessage" role="status"></span></div>
+      </section>
+
+      <section class="panel" id="activityPanel" hidden>
+        <div class="panel-head">
+          <div><p class="kicker">Master Admin only</p><h2>Change reports &amp; export</h2><p>See who changed what, which local file was affected, and the exact date and time. The report stays in <code>data/activity.json</code>.</p></div>
+          <button id="exportButton" type="button">Create export copy</button>
+        </div>
+        <p class="message" id="exportMessage" role="status"></p>
+        <div class="report-summary" id="reportSummary" aria-live="polite"></div>
+        <div class="report-toolbar"><label>Show <select id="reportFilter"><option value="all">All activity</option><option value="content">Website changes</option><option value="media">Media changes</option><option value="news">News &amp; ticker</option><option value="access">Accounts &amp; access</option></select></label><span id="reportCount"></span></div>
+        <div class="activity-list" id="activityList"></div>
+      </section>
+    </section>
+  </main>
+  <script src="/admin/app.js?v=organized-editor-4"></script>
+</body>
+</html>

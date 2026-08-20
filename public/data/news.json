@@ -1,0 +1,26 @@
+[
+  {
+    "showDate": "2026-08-20",
+    "type": "Announcement",
+    "title": "WALANG PASOK HOLIDAY",
+    "message": "WALANG PASOK HOLIDAY"
+  },
+  {
+    "showDate": "2026-07-14",
+    "type": "Admissions",
+    "title": "First-semester enrollment opens August 4",
+    "message": "Freshman and transferee slots for the College of Business, Education, Engineering & IT, and Health Sciences are now open for the incoming school year."
+  },
+  {
+    "showDate": "2026-07-02",
+    "type": "Academics",
+    "title": "Nursing program posts 96% board exam pass rate",
+    "message": "Forty-one of LGC's forty-three examinees passed the June Nursing Licensure Examination, well above the national passing average."
+  },
+  {
+    "showDate": "2026-06-25",
+    "type": "Community",
+    "title": "Engineering students complete barangay water audit",
+    "message": "Third-year Civil Engineering students partnered with the local government to survey water access across four barangays in Oriental Mindoro."
+  }
+]

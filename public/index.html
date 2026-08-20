@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LGC — Luna Goco Colleges, Inc.</title>
+  <meta name="description" content="Luna Goco Colleges, Inc. — a college in J.P. Rizal Street, Lalud, Calapan City, Oriental Mindoro.">
+  <link rel="icon" href="assets/img/lgc-logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/section-colors.css">
+  <link rel="stylesheet" href="css/local-admin.css">
+</head>
+<body class="home-page spa-page">
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/" class="brand" data-route="index.html"><img src="assets/img/lgc-logo-transparent.png" alt="LGC seal"><span class="brand-word"><b>LGC</b><span>Luna Goco Colleges, Inc.</span></span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="/" data-route="index.html">Home</a><a href="/about.html" data-route="about.html">About</a><a href="/academics.html" data-route="academics.html">Academics</a><a href="/admissions.html" data-route="admissions.html">Admissions</a><a href="/news.html" data-route="news.html">News</a><a href="/contact.html" data-route="contact.html">Contact</a>
+      </div>
+      <div class="nav-cta"><a href="/admissions.html" data-route="admissions.html" class="btn btn-ghost">Apply</a><button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle"><span></span><span></span><span></span></button></div>
+    </nav>
+  </header>
+
+  <main id="singlePageApp">
+    <section class="intro-stage" id="introStage" aria-label="Luna Goco Colleges, Inc. introduction">
+      <div class="intro-stage__background" aria-hidden="true"><video id="sharedHeroVideo" class="intro-stage__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/campus-opening.jpg"><source id="sharedHeroVideoSource" src="assets/uploads/1787201440390-432c126a-WEBSITE-VIDEO-ADS.mp4" type="video/mp4"></video></div>
+      <div class="intro-stage__veil" aria-hidden="true"></div>
+      <div class="intro-stage__content" id="routeHeroContent"><p class="intro-stage__kicker">Luna Goco Colleges, Inc.</p><h1>Luna Goco<br><em>Colleges, Inc.</em></h1><p class="intro-stage__lead">Forming graduates in scholarship, character, and service.</p><a class="intro-stage__enter" href="#pageContent">Explore LGC <span>↓</span></a></div>
+      <div class="intro-stage__side-note" id="routeHeroSideNote">J.P. Rizal Street<br>Lalud, Calapan City</div>
+    </section>
+    <div id="routeContent" class="spa-route-content" aria-live="polite"></div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="js/universal-layout.js"></script>
+  <script src="js/local-news.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/spa-router.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "3a89f28e-d256-4837-a3ca-fe5b5e830ffe",
+    "username": "admin",
+    "displayName": "Master Admin",
+    "role": "master",
+    "enabled": true,
+    "passwordHash": "5dcb324f5a5ee5a327d80ea0f12b9d4f:6e8427b0a1b9a0fb01950b127e8e69a447e5f852bd1f0139cedd042ec5c9b40a55756efb7b60f69727a6b2076c8a6f0b9b5383ce4da499a6a9cddf9bcfed1c7c",
+    "createdAt": "2026-08-20T04:38:57.976Z",
+    "updatedAt": "2026-08-20T04:38:57.976Z"
+  }
+]

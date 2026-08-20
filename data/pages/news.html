@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — LGC</title>
+<meta name="description" content="Campus announcements, academic news, and events at Luna Goco Colleges, Inc.">
+<link rel="icon" href="assets/img/lgc-logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  /* news.html-specific additions only — .news-card, .news-date, .tag already come from styles.css */
+  .news-state{ padding:40px 0; color:var(--ink-soft); font-size:14.5px; }
+  .announcement-ticker{
+    background:var(--maroon-700);
+    color:#fff;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.02em;
+    overflow:hidden;
+  }
+  .announcement-ticker__viewport{ overflow:hidden; width:100%; }
+  .announcement-ticker__track{
+    display:flex;
+    width:max-content;
+    animation:announcement-ticker-scroll 24s linear infinite;
+    will-change:transform;
+  }
+  .announcement-ticker__item{
+    flex:none;
+    display:block;
+    white-space:nowrap;
+    padding:11px 72px;
+  }
+  .announcement-ticker:hover .announcement-ticker__track,
+  .announcement-ticker:focus-within .announcement-ticker__track{ animation-play-state:paused; }
+  @keyframes announcement-ticker-scroll{ to{ transform:translateX(-50%); } }
+  @media (prefers-reduced-motion:reduce){ .announcement-ticker__track{ animation:none; } }
+  }
+</style>
+<link rel="stylesheet" href="css/local-admin.css">
+</head>
+<body class="media-page">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/img/lgc-logo-transparent.png" alt="LGC seal">
+      <span class="brand-word"><b>LGC</b><span>Luna Goco Colleges, Inc.</span></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="news.html" class="active">News</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="admissions.html" class="btn btn-ghost">Apply</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<section id="announcementMarquee" class="announcement-ticker" hidden aria-label="Latest LGC announcement">
+  <div class="announcement-ticker__viewport">
+    <div class="announcement-ticker__track" aria-hidden="true">
+      <span class="announcement-ticker__item" id="marqueeText"></span>
+      <span class="announcement-ticker__item" id="marqueeTextDuplicate" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<section class="intro-stage page-media-hero" id="introStage" aria-label="LGC announcements and events">
+  <div class="intro-stage__background" aria-hidden="true"><video class="intro-stage__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/campus-life.jpg"><source src="assets/img/video ads/WEBSITE VIDEO ADS.mp4" type="video/mp4"></video></div>
+  <div class="intro-stage__veil" aria-hidden="true"></div>
+  <div class="intro-stage__content"><p class="intro-stage__kicker">Campus news</p><h1>Announcements<br><em>&amp; events.</em></h1><p class="intro-stage__lead">Board exam results, enrollment notices, and campus activity — updated through the registrar and student affairs office.</p><a class="intro-stage__enter" href="#pageContent">View announcements <span>↓</span></a></div>
+  <div class="intro-stage__side-note">J.P. Rizal Street<br>Lalud, Calapan City</div>
+</section>
+
+<section class="section" id="pageContent">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns:1fr; max-width:820px;">
+      <div id="newsList">
+        <div class="news-state">Loading announcements…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/img/lgc-logo-transparent.png" alt="LGC seal">
+          <b>LGC</b>
+        </div>
+        <p style="font-size:14.5px; max-width:280px;">Luna Goco Colleges, Inc. — J.P. Rizal Street, Lalud, Calapan City, Oriental Mindoro, Philippines. Forming graduates in scholarship, character, and service since 1998.</p>
+        <div class="social-row" style="margin-top:20px;">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+      <div>
+        <h4>College</h4>
+        <ul>
+          <li><a href="about.html">About LGC</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="news.html">News &amp; events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Admissions</h4>
+        <ul>
+          <li><a href="admissions.html">How to apply</a></li>
+          <li><a href="admissions.html#requirements">Requirements</a></li>
+          <li><a href="admissions.html#tuition">Tuition &amp; aid</a></li>
+          <li><a href="contact.html">Talk to admissions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>J.P. Rizal Street, Lalud,</li>
+          <li>Calapan City, Oriental Mindoro, 5200</li>
+          <li>Mon–Sat, 8:00 AM–5:00 PM</li>
+          <li><a href="mailto:info@lgc.edu.ph">info@lgc.edu.ph</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span><a class="local-admin-link" href="/admin">Admin sign in</a></span>
+      <span>© 2026 Luna Goco Colleges, Inc. All rights reserved.</span>
+      <span>Placeholder site — content for demonstration purposes.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/universal-layout.js"></script>
+<script src="js/main.js"></script>
+<script src="js/local-news.js"></script>
+
+</body>
+</html>

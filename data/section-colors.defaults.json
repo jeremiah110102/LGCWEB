@@ -1,0 +1,13 @@
+{
+  "header": { "label": "Header and navigation", "background": "#064d22", "text": "#ffffff", "accent": "#f8d51b", "overlay": "#064d22" },
+  "hero": { "label": "Shared video hero overlay", "background": "#064d22", "text": "#ffffff", "accent": "#f8d51b", "overlay": "#064d22" },
+  "homeHero": { "label": "Home feature segment", "background": "#064d22", "text": "#ffffff", "accent": "#f8d51b", "overlay": "#064d22" },
+  "belief": { "label": "Home belief segment", "background": "#fafafc", "text": "#14161c", "accent": "#0b7a32", "overlay": "#fafafc" },
+  "academics": { "label": "Home academics segment", "background": "#f1f1f6", "text": "#14161c", "accent": "#0b7a32", "overlay": "#f1f1f6" },
+  "president": { "label": "Home president segment", "background": "#fafafc", "text": "#14161c", "accent": "#0b7a32", "overlay": "#fafafc" },
+  "news": { "label": "Home news segment", "background": "#f1f1f6", "text": "#14161c", "accent": "#bd101a", "overlay": "#f1f1f6" },
+  "cta": { "label": "Home call-to-action segment", "background": "#064d22", "text": "#ffffff", "accent": "#f8d51b", "overlay": "#064d22" },
+  "pageContent": { "label": "Inner-page content segments", "background": "#fafafc", "text": "#14161c", "accent": "#0b7a32", "overlay": "#fafafc" },
+  "ticker": { "label": "News announcement ticker", "background": "#bd101a", "text": "#ffffff", "accent": "#f8d51b", "overlay": "#bd101a" },
+  "footer": { "label": "Universal footer", "background": "#14161c", "text": "#c9c2b8", "accent": "#f8d51b", "overlay": "#14161c" }
+}
