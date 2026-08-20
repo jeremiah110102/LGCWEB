@@ -1,0 +1,14 @@
+{
+  "name": "lgc-localhost-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A fully local Luna Goco Colleges website and Admin editor. No Manus services are required.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^2.0.2"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+export/*
+!export/.gitkeep
+public/assets/uploads/*
+!public/assets/uploads/.gitkeep
+data/activity.json
+npm-debug.log*
