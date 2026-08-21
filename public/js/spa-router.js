@@ -420,14 +420,14 @@
   /*
    * Admin requires the local Node.js server.
    * Prevent GitHub Pages from opening /admin.
-   */
+   
   if (link.href.includes("/admin")) {
     if (isGitHubPages) {
       event.preventDefault();
     }
 
     return;
-  }
+  }*/
 
   const url = new URL(
     link.href,
