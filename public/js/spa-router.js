@@ -401,93 +401,104 @@
     renderRoute(route);
   };
 
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest("a[href]");
+ document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
 
-    if (
-      !link ||
-      event.defaultPrevented ||
-      event.button !== 0 ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey ||
-      link.target === "_blank" ||
-      link.href.includes("/admin")
-    ) {
-      return;
-    }
+  if (
+    !link ||
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey ||
+    link.target === "_blank"
+  ) {
+    return;
+  }
 
-    const url = new URL(
-      link.href,
-      window.location.href
-    );
-
-    if (url.origin !== window.location.origin) {
-      return;
-    }
+  /*
+   * Admin requires the local Node.js server.
+   * Prevent GitHub Pages from opening /admin.
+   */
+  if (link.href.includes("/admin")) {
     if (isGitHubPages) {
-  document
-    .querySelectorAll(
-      'a[href="/admin"], a[href="admin"], a[href$="/admin"]'
-    )
-    .forEach((link) => {
-      link.style.display = "none";
-    });
-}
-
-    const filename =
-      url.pathname.split("/").pop() || "";
-
-    const queryRoute =
-      url.searchParams.get("page");
-
-    const isPublicRoute =
-      routes.has(filename) ||
-      (queryRoute && routes.has(queryRoute)) ||
-      url.pathname === "/" ||
-      url.pathname === basePath;
-
-    if (!isPublicRoute) return;
-
-    event.preventDefault();
-
-    const route = routeFromUrl(url);
-
-    document
-      .querySelector(".nav-links")
-      ?.classList.remove("open");
-
-    document
-      .querySelector(".nav-toggle")
-      ?.setAttribute("aria-expanded", "false");
-
-    if (
-      route === currentRoute() &&
-      url.hash
-    ) {
-      document
-        .getElementById(url.hash.slice(1))
-        ?.scrollIntoView({
-          behavior: "smooth",
-        });
-
-      return;
+      event.preventDefault();
     }
 
-    navigate(route, url.hash);
-  });
+    return;
+  }
 
-  window.addEventListener("popstate", () => {
-    renderRoute(currentRoute(), {
-      preserveScroll: true,
-    });
-  });
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-      renderRoute(currentRoute());
-    }
+  const url = new URL(
+    link.href,
+    window.location.href
   );
+
+  if (url.origin !== window.location.origin) {
+    return;
+  }
+
+  const filename =
+    url.pathname.split("/").pop() || "";
+
+  const queryRoute =
+    url.searchParams.get("page");
+
+  const isPublicRoute =
+    routes.has(filename) ||
+    (queryRoute && routes.has(queryRoute)) ||
+    url.pathname === "/" ||
+    url.pathname === basePath;
+
+  if (!isPublicRoute) {
+    return;
+  }
+
+  event.preventDefault();
+
+  const route = routeFromUrl(url);
+
+  document
+    .querySelector(".nav-links")
+    ?.classList.remove("open");
+
+  document
+    .querySelector(".nav-toggle")
+    ?.setAttribute("aria-expanded", "false");
+
+  if (
+    route === currentRoute() &&
+    url.hash
+  ) {
+    document
+      .getElementById(url.hash.slice(1))
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+
+    return;
+  }
+
+  navigate(route, url.hash);
+});
+
+window.addEventListener("popstate", () => {
+  renderRoute(currentRoute(), {
+    preserveScroll: true,
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (isGitHubPages) {
+    document
+      .querySelectorAll(
+        'a[href="/admin"], a[href="admin"], a[href$="/admin"]'
+      )
+      .forEach((link) => {
+        link.style.display = "none";
+      });
+  }
+
+  renderRoute(currentRoute());
+});
 })();
