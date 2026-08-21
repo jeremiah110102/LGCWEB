@@ -1,7 +1,13 @@
 node_modules/
+
 export/*
 !export/.gitkeep
-public/assets/uploads/*
-!public/assets/uploads/.gitkeep
+
 data/activity.json
+
+config.js
+.env
+.env.*
+
 npm-debug.log*
+folder-structure.txt
