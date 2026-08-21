@@ -426,6 +426,15 @@
     if (url.origin !== window.location.origin) {
       return;
     }
+    if (isGitHubPages) {
+  document
+    .querySelectorAll(
+      'a[href="/admin"], a[href="admin"], a[href$="/admin"]'
+    )
+    .forEach((link) => {
+      link.style.display = "none";
+    });
+}
 
     const filename =
       url.pathname.split("/").pop() || "";
