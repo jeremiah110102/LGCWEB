@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — LGC</title>
+<meta name="description" content="Contact Luna Goco Colleges, Inc. — campus address, office hours, and department lines.">
+<link rel="icon" href="assets/img/lgc-logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link rel="stylesheet" href="css/local-admin.css">
+</head>
+<body class="media-page">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/img/lgc-logo-transparent.png" alt="LGC seal">
+      <span class="brand-word"><b>LGC</b><span>Luna Goco Colleges, Inc.</span></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="news.html">News</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="admissions.html" class="btn btn-ghost">Apply</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<section class="intro-stage page-media-hero" id="introStage" aria-label="Contact Luna Goco Colleges">
+  <div class="intro-stage__background" aria-hidden="true"><video class="intro-stage__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/campus-opening.jpg"><source src="assets/img/video ads/WEBSITE VIDEO ADS.mp4" type="video/mp4"></video></div>
+  <div class="intro-stage__veil" aria-hidden="true"></div>
+  <div class="intro-stage__content"><p class="intro-stage__kicker">Get in touch</p><h1>We're on campus<br><em>most days.</em></h1><p class="intro-stage__lead">For admissions questions, the fastest route is the form below or a walk-in visit. For anything urgent, call the front office directly.</p><a class="intro-stage__enter" href="#pageContent">Contact LGC <span>↓</span></a></div>
+  <div class="intro-stage__side-note">J.P. Rizal Street<br>Lalud, Calapan City</div>
+</section>
+
+<section class="section" id="pageContent">
+  <div class="wrap">
+    <div class="grid grid-2" style="gap:64px; align-items:start;">
+
+      <div class="reveal">
+        <p class="eyebrow">Send a message</p>
+        <h2 style="font-size:1.8rem; margin:16px 0 28px;">Admissions &amp; general inquiries</h2>
+
+        <!--
+          ============================================================
+          This form submits to Formspree (https://formspree.io).
+          Endpoint: https://formspree.io/f/xkjwronz
+
+          Manage the destination email, spam filtering, and any
+          reCAPTCHA/verification settings from the Formspree dashboard
+          for this form ID — no client-side reCAPTCHA is used here.
+          ============================================================
+        -->
+        <form id="contact-form" action="https://formspree.io/f/xkjwronz" method="POST">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fname">First name</label>
+              <input type="text" id="fname" name="First Name" required>
+            </div>
+            <div class="form-field">
+              <label for="lname">Last name</label>
+              <input type="text" id="lname" name="Last Name" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="Email" required>
+            <label for="Contact">Contact no.</label>
+            <input type="text" id="Contact" name="ContactNo" required>
+          </div>
+          <div class="form-field">
+            <label for="topic">I'm writing about</label>
+            <select id="topic" name="Topic">
+              <option>Admissions &amp; enrollment</option>
+              <option>Academics &amp; programs</option>
+              <option>Scholarships &amp; financial aid</option>
+              <option>Campus visit</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" rows="5" required></textarea>
+          </div>
+
+          <!-- Anti-spam honeypot field (Formspree convention: must stay named "_gotcha") -->
+          <input type="text" name="_gotcha" style="display:none">
+          <input type="hidden" name="_subject" value="New inquiry from LGC website">
+
+          <!--
+            reCAPTCHA setup:
+            1. Go to https://www.google.com/recaptcha/admin/create
+            2. Register a site, choose "reCAPTCHA v2 → I'm not a robot Checkbox"
+            3. Add your site's domain (and 127.0.0.1/localhost if testing locally)
+            4. Copy the SITE KEY it gives you and paste it into data-sitekey below
+               (the secret key isn't needed here — this is a client-side gate;
+               for server-side verification, add the secret key in Formspree's
+               dashboard under this form's settings)
+          -->
+          <div class="g-recaptcha" data-sitekey="6LdF8n8tAAAAAAIQhydmiP4HsXNgxTcanR2U-ueA" style="margin-bottom:18px;"></div>
+
+          <button type="submit" class="btn btn-primary" id="contactSubmitBtn">Send message</button>
+          <p id="contactFormMsg" style="margin-top:14px; font-size:14px;"></p>
+        </form>
+      </div>
+
+      <div class="reveal" style="transition-delay:.1s;">
+        <p class="eyebrow">Campus details</p>
+        <h2 style="font-size:1.8rem; margin:16px 0 28px;">Find us</h2>
+
+        <div style="aspect-ratio:4/3; background:var(--paper-dim); border:1px solid var(--line); overflow:hidden; margin-bottom:28px;">
+  <iframe
+    src="https://www.google.com/maps?q=13.4000435,121.1703989&z=17&output=embed"
+    style="width:100%; height:100%; border:0;"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen>
+  </iframe>
+</div>
+
+        <div style="display:flex; flex-direction:column; gap:22px;">
+          <div style="display:flex; justify-content:space-between; padding-bottom:18px; border-bottom:1px solid var(--line);">
+            <span style="font-size:13px; color:var(--ink-soft); letter-spacing:.04em; text-transform:uppercase;">Address</span>
+            <span style="text-align:right; max-width:220px;">J.P. Rizal St. Lalud Calapan City, Oriental Mindoro, 5200</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding-bottom:18px; border-bottom:1px solid var(--line);">
+            <span style="font-size:13px; color:var(--ink-soft); letter-spacing:.04em; text-transform:uppercase;">Admissions</span>
+            <span>(046) 419-0000 loc. 112</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding-bottom:18px; border-bottom:1px solid var(--line);">
+            <span style="font-size:13px; color:var(--ink-soft); letter-spacing:.04em; text-transform:uppercase;">Registrar</span>
+            <span>(046) 419-0000 loc. 108</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding-bottom:18px; border-bottom:1px solid var(--line);">
+            <span style="font-size:13px; color:var(--ink-soft); letter-spacing:.04em; text-transform:uppercase;">Email</span>
+            <a href="mailto:info@lgc.edu.ph" class="text-link" style="border:0;">info@lgc.edu.ph</a>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="font-size:13px; color:var(--ink-soft); letter-spacing:.04em; text-transform:uppercase;">Office hours</span>
+            <span>Mon–Sat, 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/img/lgc-logo-transparent.png" alt="LGC seal">
+          <b>LGC</b>
+        </div>
+        <p style="font-size:14.5px; max-width:280px;">Luna Goco Colleges, Inc. — J.P. Rizal Street, Lalud, Calapan City, Oriental Mindoro, Philippines. Forming graduates in scholarship, character, and service since 1998.</p>
+        <div class="social-row" style="margin-top:20px;">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+      <div>
+        <h4>College</h4>
+        <ul>
+          <li><a href="about.html">About LGC</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="news.html">News &amp; events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Admissions</h4>
+        <ul>
+          <li><a href="admissions.html">How to apply</a></li>
+          <li><a href="admissions.html#requirements">Requirements</a></li>
+          <li><a href="admissions.html#tuition">Tuition &amp; aid</a></li>
+          <li><a href="contact.html">Talk to admissions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>J.P. Rizal Street, Lalud,</li>
+          <li>Calapan City, Oriental Mindoro, 5200</li>
+          <li>Mon–Sat, 8:00 AM–5:00 PM</li>
+          <li><a href="mailto:info@lgc.edu.ph">info@lgc.edu.ph</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span><a class="local-admin-link" href="/admin">Admin sign in</a></span>
+      <span>© 2026 Luna Goco Colleges, Inc. All rights reserved.</span>
+      <span>Placeholder site — content for demonstration purposes.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/universal-layout.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('contactSubmitBtn');
+  const msgEl = document.getElementById('contactFormMsg');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const recaptchaResponse = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
+    if (!recaptchaResponse) {
+      msgEl.style.color = '#A34432';
+      msgEl.textContent = 'Please check the "I\'m not a robot" box before sending.';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    msgEl.textContent = '';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        msgEl.style.color = '#3F6B4F';
+        msgEl.textContent = 'Message sent — we\'ll get back to you soon.';
+        form.reset();
+        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+      } else {
+        msgEl.style.color = '#A34432';
+        msgEl.textContent = 'Something went wrong. Please try again, or email info@lgc.edu.ph directly.';
+      }
+    } catch (err) {
+      console.error(err);
+      msgEl.style.color = '#A34432';
+      msgEl.textContent = 'Couldn\'t send right now — check your connection and try again.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send message';
+    }
+  });
+})();
+</script>
+</body>
+</html>
